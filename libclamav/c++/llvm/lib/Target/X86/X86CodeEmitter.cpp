@@ -567,7 +567,7 @@ void Emitter<CodeEmitter>::emitMemModRMByte(const MachineInstr &MI,
   }
 
   // Calculate what the SS field value should be...
-  static const unsigned SSTable[] = { ~0, 0, 1, ~0, 2, ~0, ~0, ~0, 3 };
+  static const unsigned SSTable[] = { ~0u, 0u, 1u, ~0u, 2u, ~0u, ~0u, ~0u, 3u };
   unsigned SS = SSTable[Scale.getImm()];
 
   if (BaseReg == 0) {

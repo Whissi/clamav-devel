@@ -415,7 +415,7 @@ static size_t from_bits(unsigned int bits) {
   return fragsz[bits];
 }
 
-static inline unsigned int alignof(size_t size)
+static inline unsigned int alignOf(size_t size)
 {
     /* conservative estimate of alignment.
      * A struct that needs alignment of 'align' is padded by the compiler
@@ -607,7 +607,7 @@ static void* allocate_aligned(struct MPMAP *mpm, size_t size, unsigned align, co
 }
 
 void *mpool_malloc(struct MP *mp, size_t size) {
-  size_t align = alignof(size);
+  size_t align = alignOf(size);
   size_t i, needed = align_increase(size+FRAG_OVERHEAD, align);
   const unsigned int sbits = to_bits(needed);
   struct FRAG *f = NULL;
